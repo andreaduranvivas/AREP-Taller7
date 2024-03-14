@@ -4,13 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UserManager {
-    private Map<String, User> usuarios;
+    private static Map<String, User> usuarios;
 
     public UserManager() {
         usuarios = new HashMap<>();
     }
 
-    public void addUser(String username, String password) {
+    public static void addUser(String username, String password) {
         User user = new User(username);
         user.setPassword(password);
         usuarios.put(username, user);
@@ -20,11 +20,11 @@ public class UserManager {
         usuarios.remove(username);
     }
 
-    public User getUser(String username) {
+    public static User getUser(String username) {
         return usuarios.get(username);
     }
 
-    public boolean userExists(String username) {
+    public static boolean userExists(String username) {
         return usuarios.containsKey(username);
     }
 
