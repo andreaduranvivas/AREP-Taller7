@@ -1,5 +1,6 @@
 package edu.arep.login;
 
+import edu.arep.secureSpark.URLReader;
 import edu.arep.user.UserManager;
 import static spark.Spark.*;
 
@@ -19,9 +20,6 @@ public class Login {
         UserManager.addUser("usuario1", "contraseña1");
         UserManager.addUser("usuario2", "contraseña2");
 
-        //API: secure(keystoreFilePath, keystorePassword, truststoreFilePath, truststorePassword);
-        secure("certificados/ecikeystore.p12", "123456", null, null);
-
         port(getPort());
 
         post("/login", (req, res) -> {
@@ -29,12 +27,22 @@ public class Login {
             String password = req.queryParams("password");
 
             if (UserManager.userExists(username) && UserManager.getUser(username).checkPassword(password)) {
-                return "Autenticación exitosa";
+                return "calculadora.html";
             } else {
                 res.status(401); // Unauthorized
                 return "Autenticación fallida";
             }
         });
+
+        get("/calculadora", (req, res) -> {
+            if (userManager.isAuthenticated(req.queryParams("username"))) {
+                return URLReader.readExternalURL("https://localhost:4567/calculadora");
+            } else {
+                return "Unauthorized";
+            }
+        });
+
+
     }
 
     private static int getPort() {

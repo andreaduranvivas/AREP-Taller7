@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calcular Coseno</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+    </head>
+    <body>
+    <div class="main-content">
+        <h1>Calcular Coseno</h1>
+        <form action="/cos">
+            <label for="angle">Ángulo (en radianes):</label><br>
+            <input type="number" id="angle" name="angle" required><br><br>
+            <input type="button" value="Calcular" id="btnVerificar" onclick="loadCosMsg()">
+        </form>
+        <div id="cosrespmsg"></div>
+    </div>
+
+    <script src="/js/calculadora.js"></script>
+    </body>
+</html>

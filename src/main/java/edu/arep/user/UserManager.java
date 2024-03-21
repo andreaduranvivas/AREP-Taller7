@@ -39,5 +39,9 @@ public class UserManager {
         manager.deleteUser("usuario1");
         System.out.println(manager.userExists("usuario1")); // Debería imprimir "false"
     }
+
+    public boolean isAuthenticated(String username) {
+        return true;
+    }
 }
 

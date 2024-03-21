@@ -10,6 +10,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     xhr.onload = function() {
         if (xhr.status === 200) {
             document.getElementById('response').innerHTML = 'Login successful';
+            window.location.href = "https://localhost:4567/calculadora.html";
         } else {
             document.getElementById('response').innerHTML = 'Login failed';
         }

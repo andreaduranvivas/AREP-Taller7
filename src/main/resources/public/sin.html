@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calcular Seno</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+    <div class="main-content">
+        <h1>Calcular Seno</h1>
+        <form action="/sin">
+            <label for="angle">Ángulo (en radianes):</label><br>
+            <input type="number" id="angle" name="angle" required><br><br>
+            <input type="button" value="Calcular" id="btnVerificar" onclick="loadSinMsg()">
+        </form>
+        <div id="sinrespmsg"></div>
+    </div>
+
+    <script src="/js/calculadora.js"></script>
+</body>
+</html>
